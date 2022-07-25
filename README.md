@@ -1,4 +1,5 @@
-# ternary-algebra
+# Ternary Algebra in Haskell
+
 Using Haskell to begin attempting to create a new Boolean-like class called Ternary.
 
 NOTE: Currently in development, I will continue to add to it but I want to document the changes I make.
