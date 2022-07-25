@@ -2,6 +2,7 @@
 --We begin by construction a data type called Ternary with three constructors False', True', Undetermined. False' and True' work as you'd expect, but Undetermined operates as a boolean value. Next I have listed all 27 possible monadic function (operate on one datatype
 
 data Ternary = False' | Undetermined | True'
+ternary_values = [False', Undetermined, True']
 
 m0 :: Ternary -> Ternary
 m0 True' = False'
@@ -138,12 +139,23 @@ mZ True' = True'
 mZ Undetermined = True'
 mZ False' = True'
 
-monadic_functions = [m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,mA,mB,mC,mD,mE,mF,mG,mH,mK,mM,mN,mP,mR,mT,mV,mX,mZ] --all 27 monadic functions
-monadic_const     = [mFalse=m0, mUndet=mD, mTrue=mZ, mId=mP]                                           --Constant values + identity function
-monadic_helpers   = [mNegate=m5, mIncrement=m7, mDecrement=mB, mDecodeF=m2, mDecodeU=m6, mDecodeT=mK]  --See names for other functions;  may expand in future.
-ternary_values = [False', Undetermined, True']
+ternToInt :: Ternary -> Int  --This function maps {F,U,T} onto {-1,0,1}
+ternToInt True' = 1
+ternToInt Undetermined = 0
+ternToInt False' = (-1)
 
+intToTern :: Int -> Ternary  --Inverse function of ternToInt
+intToTern 1    = True'
+intToTern 0    = Undetermined
+intToTern (-1) = False'
 
+monadic_functions    = [m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,mA,mB,mC,mD,mE,mF,mG,mH,mK,mM,mN,mP,mR,mT,mV,mX,mZ]
+monadic_constant     = [mFalse=m0, mUndet=mD, mTrue=mZ]
+monadic_helpers      = [mNegate=m5, mId=mP]
+increment_decrement  = [mDecrement=mB, mIncrement=m7]        --Adding or subtracting 1 in modulo 3 arithmetic
+decoders             = [mNTI=m2, mPTI=mK, mUTI=m6]           --They map True' onto one element and False' onto the rest
+inv_decoders         = [m_NTI=mV, m_PTI=mN, m_UTI=m8]        --Inverse functions of decoders
+clamps               = [mClampUp=mC, mClampDown = mR]
 
 -- SOURCES
 -- Dr H.T. Mouftah, Department of Electrical Engineering, U of Toronto. "A Study on the Implementation of Three-Valued Logic"
