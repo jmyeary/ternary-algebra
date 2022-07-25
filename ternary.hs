@@ -138,9 +138,9 @@ mZ True' = True'
 mZ Undetermined = True'
 mZ False' = True'
 
-monadic_functions = [m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,mA,mB,mC,mD,mE,mF,mG,mH,mK,mM,mN,mP,mR,mT,mV,mX,mZ]
-monadic_const     = [mFalse=m0, mUndet=mD, mTrue=mZ, mId=mP]
-monadic_helpers   = [mNegate=m5, mIncrement=m7, mDecrement=mB, mDecodeF=m2, mDecodeU=m6, mDecodeT=mK]
+monadic_functions = [m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,mA,mB,mC,mD,mE,mF,mG,mH,mK,mM,mN,mP,mR,mT,mV,mX,mZ] --all 27 monadic functions
+monadic_const     = [mFalse=m0, mUndet=mD, mTrue=mZ, mId=mP]                                           --Constant values + identity function
+monadic_helpers   = [mNegate=m5, mIncrement=m7, mDecrement=mB, mDecodeF=m2, mDecodeU=m6, mDecodeT=mK]  --See names for other functions;  may expand in future.
 ternary_values = [False', Undetermined, True']
 
 
