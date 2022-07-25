@@ -1,4 +1,5 @@
 --import Data.List (nub, delete)
+--We begin by construction a data type called Ternary with three constructors False', True', Undetermined. False' and True' work as you'd expect, but Undetermined operates as a boolean value. Next I have listed all 27 possible monadic function (operate on one datatype
 
 data Ternary = False' | Undetermined | True'
 
@@ -141,3 +142,10 @@ monadic_functions = [m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,mA,mB,mC,mD,mE,mF,mG,mH,mK,mM
 monadic_const     = [mFalse=m0, mUndet=mD, mTrue=mZ, mId=mP]
 monadic_helpers   = [mNegate=m5, mIncrement=m7, mDecrement=mB, mDecodeF=m2, mDecodeU=m6, mDecodeT=mK]
 ternary_values = [False', Undetermined, True']
+
+
+
+-- SOURCES
+-- Dr H.T. Mouftah, Department of Electrical Engineering, U of Toronto. "A Study on the Implementation of Three-Valued Logic"
+-- Jeff Connelly, Computer Science and Engineering Dept, California Polytechnic State University, "Ternary Computing Testbed 3-Trit Computer Architecture"
+-- Dr Douglas W Jones, Computer Science Department, University of Iowa "Standard Ternary Logic"
