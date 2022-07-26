@@ -11,7 +11,7 @@ Practically, when we go to make decisions whether they be for our personal life 
 I will continue to develop this and see where it goes. I don't have any particular applications in mind. I'm just developing it purely out of curiosity, but I'm sure one can be found somewhere.
 
 
-I would like to give special thanks to Dr H T Mouftah, Jeff Connelly and Dr Douglas W Jones of the University of Iowa Department of Computer Science, as their freely available research and websites were of invaluable assistance in my developing my own understanding of the topic.
+I would like to give special thanks to Dr H T Mouftah, Jeff Connelly and Dr Douglas W Jones of the University of Iowa Department of Computer Science, as their freely available research and websites were of invaluable assistance in my developing my own understanding of the topic. Also a special thanks to Maria P from Revature, who taught me all of the foundations of functional programming that have been infinitely helpful.
 
 SOURCES:
 Dr H.T. Mouftah, Department of Electrical Engineering, U of Toronto. "A Study on the Implementation of Three-Valued Logic"
