@@ -9,3 +9,11 @@ Conceptually speaking, imagine if instead of only True and False you could work 
 Practically, when we go to make decisions whether they be for our personal life or for a business setting, we don't have enough information to form a proper decision on that issue. So we use the Undetermined operator to symbolically represent that.
 
 I will continue to develop this and see where it goes. I don't have any particular applications in mind. I'm just developing it purely out of curiosity, but I'm sure one can be found somewhere.
+
+
+I would like to give special thanks to Dr H T Mouftah, Jeff Connelly and Dr Douglas W Jones of the University of Iowa Department of Computer Science, as their freely available research and websites were of invaluable assistance in my developing my own understanding of the topic.
+
+SOURCES:
+Dr H.T. Mouftah, Department of Electrical Engineering, U of Toronto. "A Study on the Implementation of Three-Valued Logic"
+Jeff Connelly, Computer Science and Engineering Dept, California Polytechnic State University, "Ternary Computing Testbed 3-Trit Computer Architecture"
+Dr Douglas W Jones, Computer Science Department, University of Iowa "Standard Ternary Logic"
