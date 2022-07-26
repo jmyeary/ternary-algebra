@@ -1,4 +1,7 @@
---We begin by construction a data type called Troolean with three constructors False', True', Undetermined. False' and True' work as you'd expect, but Undetermined operates as a kind of extension of the Booleans. I use apostraphes in F and T so as not to confuse Haskell with the False and True data types in Prelude module. Next I have listed all 27 (3^3) unary functions. I am beginning now to use unary functions to construct dyadic trinary functions. I will continue to develop this as I learn more!
+--We begin by construction a data type called Troolean with three constructors False', True', Undetermined. False' and True' work as you'd expect, but 
+--Undetermined operates as a kind of extension of the Booleans. I use apostraphes in F and T so as not to confuse Haskell with the False and True data types 
+--in Prelude module. Next I have listed all 27 (3^3) unary functions. I am beginning now to use unary functions to construct dyadic trinary functions. I will
+--continue to develop this as I learn more!
 
 data Troolean = False' | Undetermined | True'
                deriving (Show, Enum, Read, Eq, Ord, Bounded)
@@ -164,7 +167,11 @@ m4 False'            = Undetermined
 m4 Undetermined      = Undetermined
 m4 True'             = False'
 
---Now we will begin to implement dyadic ternary functions. In other words functions that take two ternary values and output a ternary value. In ternary logic there are 19,683 different possible ternary functions. However, as pointed out by Connelly in his paper 3-Trit Computer Architecture, we only care about Abelian functions. IE for some function f and troolean expressions A, B, we only care about those functions such that f A B = f B A. With this constraint implemented, we reduce the number of possibilities to 729: a reduction in size of over 96%! All functions are curryable, so we can write dyadic ternary functions in terms of partial compositions of functions. f(A,B)=f(False',B) ++ f(True',B) ++ f(Undetermined,B)
+--Now we will begin to implement dyadic ternary functions. In other words functions that take two ternary values and output a ternary value. In ternary 
+--logic there are 19,683 different possible ternary functions. However, as pointed out by Connelly in his paper 3-Trit Computer Architecture, we only care 
+--about Abelian functions. IE for some function f and troolean expressions A, B, we only care about those functions such that f A B = f B A. With this 
+--constraint implemented, we reduce the number of possibilities to 729: a reduction in size of over 96%! All functions are curryable, so we can write dyadic 
+--ternary functions in terms of partial compositions of functions. f(A,B)=f(False',B) ++ f(True',B) ++ f(Undetermined,B)
 
 --Trinary And/Minimum = FFF,FUU,FUT
 tAnd :: Troolean -> Troolean -> Troolean
