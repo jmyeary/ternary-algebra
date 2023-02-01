@@ -39,7 +39,7 @@ buffer Undetermined     = Undetermined
 buffer True'            = True'
 
 --Decoders
-decodeF:: Troolean -> Troolean              --Decode(-1): Inverts False' else returns False'.
+decodeF:: Troolean -> Troolean              --Decode(-1): Returns True' on False', otherwise returns False'.
 decodeF False'       = True'
 decodeF Undetermined = False'
 decodeF True'        = False'
@@ -49,7 +49,7 @@ decodeU False'       = False'
 decodeU Undetermined = True'
 decodeU True'        = False'
 
-decodeT :: Troolean -> Troolean              --Decode1: Returns True' on True' else returns False'
+decodeT :: Troolean -> Troolean              --Decode1: Returns True' on True', otherwise returns False'
 decodeT False'       = False'
 decodeT Undetermined = False'
 decodeT True'        = True'
@@ -103,6 +103,8 @@ swapFT False'          = True'
 swapFT Undetermined    = Undetermined
 swapFT True'           = False'
 swapTF = swapFT
+
+tNot a = swapFT a                        -- Ternary Not operator (Alternate function name for Symmetric Gate)
 
 --Diodes. DW Jones calls them "Clamps"
 rDiode :: Troolean -> Troolean               --Reverse diode. Fixes False', else returns Undetermined.
@@ -173,19 +175,32 @@ m4 True'             = False'
 --constraint implemented, we reduce the number of possibilities to 729: a reduction in size of over 96%! All functions are curryable, so we can write dyadic 
 --ternary functions in terms of partial compositions of functions. f(A,B)=f(False',B) ++ f(True',B) ++ f(Undetermined,B)
 
---Trinary And/Minimum = FFF,FUU,FUT
+--Ternary And/Minimum = FFF,FUU,FUT
 tAnd :: Troolean -> Troolean -> Troolean
 tAnd False' b  = False'
 tAnd Undetermined b  = rDiode b
-tAnd True' b  = buffer b
+tAnd True' b  = b
 
---Trinary Or/Maximum = FUT, UUT, TTT
+--Ternary Or/Maximum = FUT, UUT, TTT
+tOr :: Troolean -> Troolean -> Troolean
+tOr False' b = b 
+tOr Undetermined b = fDiode b
+tOr True' b = True' 
 
+--Ternary XOr  
+tXOr :: Troolean -> Troolean -> Troolean
+tXOr False' b = b 
+tXOr Undetermined _ = Undetermined
+tXOr True' b = tNot b
 
---Trinary NAnd = TTT, TUU, TUF
+--Ternary NAnd = TTT, TUU, TUF
+tNAnd :: Troolean -> Troolean -> Troolean
+tNAnd a b = tNot $ tAnd a b 
 
+--Ternary NOr =TUF, UUF, FFF
+tNOr :: Troolean -> Troolean -> Troolean
+tNOr a b = tNot $ tNOr a b
 
---Trinary NOr =TUF, UUF, FFF
 
 
 -- SOURCES
